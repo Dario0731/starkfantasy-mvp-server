@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from '../app.module';
-import { TaskPoolService } from '../sports/modules/job/pool-cron.service';
+import { TaskPoolService } from '../sports/Cricket/modules/job/pool-cron.service';
 
 async function main() {
   const app = await NestFactory.createApplicationContext(AppModule);
