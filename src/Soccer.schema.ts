@@ -1,4 +1,4 @@
-import { Entity, PrimaryColumn,PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
+import { Entity, PrimaryColumn,PrimaryGeneratedColumn, Column, OneToMany, ManyToOne, JoinColumn, CreateDateColumn, UpdateDateColumn } from 'typeorm';
 
 // ======================
 // SoccerTeam Entity
@@ -93,9 +93,8 @@ export class SoccerMatch {
 @Entity('soccer_pool')
 export class SoccerPool {
 
-@PrimaryGeneratedColumn('uuid') 
-id: string;
-
+  @PrimaryColumn({ type: 'varchar', length: 100 })
+  id: string;
   @ManyToOne(() => SoccerMatch, match => match.pools, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'matchId' })
   match: SoccerMatch;
@@ -118,4 +117,43 @@ id: string;
       this.result = result; // Default result
       this.userId = userId; // Default result
     }
+
+    
 }
+@Entity('user')
+export class User {
+
+  @PrimaryColumn({ type: 'varchar', length: 150 })
+  contract_address: string;
+
+  @Column({ type: 'varchar', length: 50 })
+  username: string;
+
+  @Column({ type: 'varchar', length: 50 })
+  email: string;
+
+  @Column({ type: 'varchar', length: 150 })
+  profile_url: string;
+
+  @Column({ type: 'int' })
+  is_deleted: number;
+
+  @CreateDateColumn({ type: 'datetime' })
+  created_at: Date;
+
+  @UpdateDateColumn({ type: 'datetime' })
+  updated_at: Date;
+
+  constructor(
+    contract_address: string,
+    username: string,
+    email: string,
+    profile_url: string
+  ) {
+    this.contract_address = contract_address;
+    this.username = username;
+    this.email = email;
+    this.profile_url = profile_url;
+    this.is_deleted = 0; 
+  }
+    }

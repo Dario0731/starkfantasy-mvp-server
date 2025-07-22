@@ -27,3 +27,14 @@ CREATE TABLE soccer_pool (
     CONSTRAINT PK_SoccerPoolID PRIMARY KEY (id),
     CONSTRAINT FK_SoccerPoolMatch FOREIGN KEY (matchId) REFERENCES soccer_match(id)
 );
+
+
+CREATE TABLE soccer_match (
+    contract_address VARCHAR(150) NOT NULL,
+    username VARCHAR(50),
+    email VARCHAR(50),
+    profile_url varchar(50),
+        is_deleted int,
+	created_at DATETIME,
+   updated_at DATETIME
+);

@@ -25,6 +25,7 @@ import { SoccerPlayerModule } from './sports/Cricket/modules/soccer/player/socce
 import { TaskPoolService } from './sports/Cricket/modules/job/pool-cron.service';
 import { SoccerTeamModule } from './sports/Soccer/modules/team/team.module';
 import { SoccerMatchModule } from './sports/Soccer/modules/match/match.module';
+import { UserModule } from './sports/Soccer/modules/user/user.module';
 
 @Module({
   imports: [
@@ -49,7 +50,7 @@ import { SoccerMatchModule } from './sports/Soccer/modules/match/match.module';
     SoccerPoolModule,
     SoccerTeamModule,
     SoccerMatchModule,
-
+    UserModule
   ],
   controllers: [AppController],
   providers: [
